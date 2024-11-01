@@ -32,7 +32,8 @@
 To run the game locally on your machine, follow these steps:
 
 1. Clone the repository:
-   > [!TIP] `git clone https://github.com/enock-niyonsaba/snake-game.git`
+   > [!TIP]
+   > `git clone https://github.com/enock-niyonsaba/snake-game.git`
    
 
 2. Open `index.html` in your web browser.
