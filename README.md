@@ -1,6 +1,6 @@
 # Snake in the Web
 
-![Snake Game](https://via.placeholder.com/600x300.png?text=Snake+Game+Screenshot)
+![Snake Game](https://github.com/enock-niyonsaba/snake-game/blob/main/Snake-game-firefox-browser-screenshot.png)
 
 ## Table of Contents
 - [About](#about)
@@ -32,8 +32,8 @@
 To run the game locally on your machine, follow these steps:
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/enock-niyonsaba/snake-game.git
+   > [!TIP] `git clone https://github.com/enock-niyonsaba/snake-game.git`
+   
 
 2. Open `index.html` in your web browser.
 
