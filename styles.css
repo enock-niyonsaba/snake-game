@@ -97,6 +97,10 @@ h1 {
 }
 #gameControls {
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #startBtn {
@@ -133,13 +137,65 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.control-btn::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 12px #bebebe,
+        -6px -6px 12px #ffffff;
+}
+
+.control-btn:active {
+    transform: translateY(1px);
+    box-shadow: inset 4px 4px 8px #bebebe,
+        inset -4px -4px 8px #ffffff;
+}
+
+#up {
+    grid-column: 2;
+}
+
+#left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#down {
+    grid-column: 2;
+    grid-row: 3;
 }
 
 
 .about {
-    margin-top: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0px auto 50px;
+    padding: 25px;
     text-align: left;
-    width: 300px; /* Align to left with specified width */
+    width: 300px;
+}
+
+.instructions{
+    list-style-type: numbers;
 }
 
 .dark-theme {
@@ -159,4 +215,14 @@ h1 {
 .dark-theme .control-btn {
     background: linear-gradient(145deg, #444, #666);
     color: #f0f0f0;
+}
+
+#footer{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
 }

@@ -52,13 +52,40 @@ function moveSnake() {
 
 function drawSnake() {
     snake.forEach((segment, index) => {
-        ctx.fillStyle = index === 0 ? '#4CAF50' : '#45a049';
+        const gradient = ctx.createLinearGradient(
+            segment.x * gridSize,
+            segment.y * gridSize,
+            (segment.x + 1) * gridSize,
+            (segment.y + 1) * gridSize
+        );
+        gradient.addColorStop(0, '#4CAF50');
+        gradient.addColorStop(1, '#45a049');
+        ctx.fillStyle = gradient;
         ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+
+        if (index === 0) {
+            // Draw eyes
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(segment.x * gridSize + 5, segment.y * gridSize + 5, 2, 0, 2 * Math.PI);
+            ctx.arc(segment.x * gridSize + 10, segment.y * gridSize + 5, 2, 0, 2 * Math.PI);
+            ctx.fill();
+        }
     });
 }
 
 function drawFood() {
-    ctx.fillStyle = '#ff6b6b';
+    const gradient = ctx.createRadialGradient(
+        food.x * gridSize + gridSize / 2,
+        food.y * gridSize + gridSize / 2,
+        2,
+        food.x * gridSize + gridSize / 2,
+        food.y * gridSize + gridSize / 2,
+        gridSize / 2
+    );
+    gradient.addColorStop(0, '#ff6b6b');
+    gradient.addColorStop(1, '#ee5253');
+    ctx.fillStyle = gradient;
     ctx.beginPath();
     ctx.arc(food.x * gridSize + gridSize / 2, food.y * gridSize + gridSize / 2, gridSize / 2 - 1, 0, 2 * Math.PI);
     ctx.fill();
@@ -176,7 +203,6 @@ toggleThemeBtn.addEventListener('click', () => {
         themeIcon.classList.remove('fa-sun');
     }
 });
-
 function playEatSound() {
     eatSound.currentTime = 0; // Reset sound to start
     eatSound.play();
